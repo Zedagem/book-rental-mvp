@@ -1,0 +1,18 @@
+<tr>
+    {{!-- <td><Input @value={{@book.title}} @type="text"/></td> --}}
+    <td>{{@book.title}}</td>
+    <td>{{dateConverter @book.publishedDate}}</td>
+    <td>
+        {{#each @book.authorList as |author|}}
+            {{author.firstName}} {{author.lastName}} ,
+        {{/each}}
+    </td>
+    <td>
+        <LinkTo class="update-btn" @route="book" @model={{@book.id}} >Update</LinkTo>
+        {{!-- <button {{on "click" this.updateBook}}>Update</button> --}}
+    </td>
+    <td>
+        <button class="delete-btn" {{on "click" this.deleteBook}}>Delete</button>
+    
+    </td>
+</tr>

@@ -1,0 +1,15 @@
+<div class="top-btn">
+    <LinkTo @route="book" @model={{'0'}}> Add Book </LinkTo>
+</div>
+<table>
+        <tr>
+            <th>Title</th>
+            <th>Publish Date</th>
+            <th>Author</th>
+            <th></th>
+            <th></th>
+        </tr>
+        {{#each this.model as |book|}}
+            <Row @book={{book}} @model={{this.model}} />
+        {{/each}}
+    </table>

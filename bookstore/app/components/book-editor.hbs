@@ -1,0 +1,35 @@
+<div class="book-editor">
+        <h3>{{if (gt @model.id 0) 'Update' 'Add'}} a Book </h3>
+        <div class="top-input">
+                Title <Input @type="text" @value={{mut @model.title}} />
+                ISBN: <Input @type="text" @value={{@model.isbn}} />
+                Published Date: <Input @type="date" @value={{(ex 0 10 @model.publishedDate)}} />
+        </div>
+        <fieldset class="bottom-input">
+                <legend>Author</legend>
+                <div style="margin:10px">
+                        First Name: <Input @type="text" @value={{(get (get @model.authorList 0 ) 'firstName' ) }} />
+                        Last Name: <Input @type="text" @value={{(get (get @model.authorList 0 ) 'lastName' )}} />
+                        Date of Birth <Input @type="date" @value={{(ex 0 10 (get (get @model.authorList 0 ) 'doB'
+                                ))}} />
+                </div>
+
+
+
+        </fieldset>
+
+
+
+        <div style="margin-top: 30px">
+                <button class="create-btn" {{on "click" this.setBook}}>{{if (gt @model.id 0)'Update' 'Add'}} Book</button>
+        </div>
+
+
+        {{!-- {{#if (eq @content 'Add')}}
+        <button type="button" {{on "click" this.addBook}}>{{@content}} Book</button>
+        {{else}}
+        <button type="button" {{on "click" this.updateBook}}>{{@content}} Book</button>
+        {{/if}} --}}
+
+
+</div>
